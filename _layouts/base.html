@@ -5,12 +5,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ page.title }}</title>
+  <!-- CSS 링크 -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   {%- include head.html -%}
 </head>
 
 <body>
-
   {%- include header.html -%}
 
   <main class="page-content" aria-label="Content">
@@ -20,9 +20,6 @@
   </main>
 
   {%- include footer.html -%}
-
   {%- include sub-footer.html -%}
-
 </body>
-
 </html>
