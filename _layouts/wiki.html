@@ -1,19 +1,25 @@
 ---
-layout: default
+layout: base
 ---
 
 <div class="wiki-container">
+
+  <!-- 왼쪽 사이드바 -->
   <aside class="wiki-sidebar">
-    <h3>Java Wiki</h3>
-    <ul>
-      <li><a href="/wiki/java/intro">개요</a></li>
-      <li><a href="/wiki/java/variables">변수</a></li>
-      <li><a href="/wiki/java/types">자료형</a></li>
-      <li><a href="/wiki/java/control">제어문</a></li>
-    </ul>
+    <details open>
+      <summary>Java</summary>
+      <ul>
+        <li><a href="{{ '/wiki/java/intro' | relative_url }}">Intro</a></li>
+        <li><a href="{{ '/wiki/java/variable' | relative_url }}">Variables</a></li>
+        <li><a href="{{ '/wiki/java/types' | relative_url }}">Types</a></li>
+        <li><a href="{{ '/wiki/java/control' | relative_url }}">Control</a></li>
+      </ul>
+    </details>
   </aside>
 
+  <!-- 본문 -->
   <main class="wiki-content">
     {{ content }}
   </main>
+
 </div>
