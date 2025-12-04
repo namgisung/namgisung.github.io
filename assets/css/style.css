@@ -50,6 +50,10 @@ button:hover, .button:hover {
     background-color: #009acd;
 }
 
+/* ------------------------------ */
+/* 📌 위키 레이아웃 */
+/* ------------------------------ */
+
 .wiki-container {
     display: flex;
     gap: 20px;
@@ -85,4 +89,36 @@ button:hover, .button:hover {
 
 .wiki-content {
     flex: 1;
+}
+
+/* ------------------------------ */
+/* 📌 헤더 + 네비게이션 */
+/* ------------------------------ */
+
+header {
+    background: #111;
+    padding: 20px;
+    text-align: center;
+}
+
+.site-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* 네비 메뉴 */
+.nav-menu {
+    margin-top: 10px;
+}
+
+.nav-menu a {
+    color: #ddd;
+    margin: 0 10px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.nav-menu a:hover {
+    color: #00bfff;
 }
