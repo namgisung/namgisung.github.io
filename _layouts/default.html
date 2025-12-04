@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      min-height: 100vh;
+      font-family: sans-serif;
+    }
+
+    /* 사이드바 */
+    .sidebar {
+      width: 250px;
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      box-sizing: border-box;
+      height: 100vh;
+      position: fixed;
+      overflow-y: auto;
+    }
+
+    .sidebar h2 {
+      margin-top: 0;
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .menu-section {
+      margin-bottom: 10px;
+    }
+
+    .menu-title {
+      cursor: pointer;
+      background: #222;
+      padding: 10px;
+      border-radius: 5px;
+      margin-bottom: 5px;
+      user-select: none;
+    }
+
+    .menu-list {
+      list-style: none;
+      margin: 0;
+      padding-left: 15px;
+      display: none;
+    }
+
+    .menu-list li {
+      margin: 6px 0;
+    }
+
+    .menu-list li a {
+      color: #ccc;
+      text-decoration: none;
+    }
+
+    .menu-list li a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* 메인 페이지 */
+    .main {
+      margin-left: 250px;
+      padding: 30px;
+      box-sizing: border-box;
+      width: 100%;
+    }
+  </style>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const titles = document.querySelectorAll(".menu-title");
+
+      titles.forEach(title => {
+        title.addEventListener("click", () => {
+          const list = title.nextElementSibling;
+          list.style.display = list.style.display === "block" ? "none" : "block";
+        });
+      });
+    });
+  </script>
+</head>
+
+<body>
+
+  <!-- 상단 -->
+  {%- include header.html -%}
+
+  <!-- 왼쪽 사이드바 -->
+  <div class="sidebar">
+    <h2>Wiki 메뉴</h2>
+
+    <!-- Java Wiki -->
+    <div class="menu-section">
+      <div class="menu-title">Java 프로그래밍 위키</div>
+      <ul class="menu-list">
+        <li><a href="/wiki/java/intro">소개</a></li>
+        <li><a href="/wiki/java/variable">변수</a></li>
+        <li><a href="/wiki/java/condition">조건문</a></li>
+        <li><a href="/wiki/java/loop">반복문</a></li>
+      </ul>
+    </div>
+
+    <!-- 다른 학습 카테고리 만들고 싶으면 여기에 추가 -->
+    <div class="menu-section">
+      <div class="menu-title">자료구조</div>
+      <ul class="menu-list">
+        <li><a href="/wiki/ds/stack">스택</a></li>
+        <li><a href="/wiki/ds/queue">큐</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- 메인 콘텐츠 -->
+  <main class="main">
+    {{ content }}
+  </main>
+
+  <!-- 하단 -->
+  {%- include footer.html -%}
+  {%- include sub-footer.html -%}
+
+</body>
+</html>
