@@ -49,3 +49,40 @@ button, .button {
 button:hover, .button:hover {
     background-color: #009acd;
 }
+
+.wiki-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.wiki-sidebar {
+    width: 220px;
+    background: #111;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.wiki-sidebar details {
+    margin-bottom: 15px;
+}
+
+.wiki-sidebar summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.wiki-sidebar a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.wiki-sidebar a:hover {
+    color: #00bfff;
+}
+
+.wiki-content {
+    flex: 1;
+}
