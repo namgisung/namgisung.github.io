@@ -1,6 +1,7 @@
 ---
 layout: wiki
-title:"input"
+title: "input"
+---
 
 먼저 입력 받기 위해 scanner를 import해준다.
 ```java
