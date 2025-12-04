@@ -3,7 +3,7 @@ layout: wiki
 title: "출력"
 ---
 
-**(1) System.out.println(“”);
+**(1) System.out.println(“”);**
 “”안에 문자를 입력하거나 변수를 입력하여 출력할 수 있다.
 문자와 변수를 같이 출력할때 (“”+a)식으로 덧셈 연산자로 합칠 수 있다.
 “”안에 \n을 넣어 줄바꿈을 할 수 있다.
@@ -12,11 +12,11 @@ title: "출력"
 System.out.println("Hello, World!");
 ```
 
-**(2) System.out.print(“”);
+**(2) System.out.print(“”);**
 println()과 기능은 비슷하나 println()는 실행 후 줄바꿈을 하지만 
 print()는 실행 후 줄바꿈을 하지 않는다.
 
-**(3) System.out.printf();
+**(3) System.out.printf();**
 ``` java
 System.out.printf(“출력%d”,a);
 ```
@@ -24,7 +24,7 @@ System.out.printf(“출력%d”,a);
 println은 출력하면 줄바꿈을 하지만 printf는 줄바꿈을 하지 않는다.
 
 
-**(4) 지시자:
+**(4) 지시자:**
 %d 10진수 (정수)
 %f 10진수 (실수)
 %s 문자 (string)
