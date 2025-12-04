@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+
+<body>
+
+<div class="container" style="display:flex; gap:20px;">
+
+  <!-- 사이드바 -->
+  <aside class="sidebar" style="width:250px; border-right:1px solid #ccc; padding-right:15px;">
+    <h2>{{ page.title }}</h2>
+    <ul>
+      {% assign posts = site.categories[page.category] %}
+      {% for post in posts %}
+        <li><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </aside>
+
+  <!-- 메인 콘텐츠 -->
+  <main class="content" style="flex:1; padding-left:15px;">
+    {{ content }}
+  </main>
+
+</div>
+
+</body>
+</html>
