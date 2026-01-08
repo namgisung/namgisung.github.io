@@ -1,6 +1,8 @@
 ---
 layout: wiki
 title: "자바 프로그래밍 위키"
+parent: Java
+order: 1
 ---
 
 CPU 수업 시간에 배웠던 코드를 복습할 수 있도록 작성한 위키입니다!!
