@@ -1,7 +1,11 @@
 ---
 layout: wiki
-title: "split function"
+title: split문
+wiki_name: java
+parent: java
+order: 12
 ---
+
 
 split함수는 문자열을 구분하여 자를 수 있다.
 
