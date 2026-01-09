@@ -1,7 +1,11 @@
 ---
 layout: wiki
-title: "arrangement"
+title: 배열
+wiki_name: java
+parent: java/배열
+order: 1
 ---
+
 
 배열이란 같은 타입의 여러 변수를 하나의 묶음으로 다루는 것이다.
 예를 들어 학생 5명의 점수를 저장하기 위해서 5개의 변수를 선어해야 할 것이다.
