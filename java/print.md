@@ -1,6 +1,10 @@
 ---
 layout: wiki
-title: "출력"
+title: 출력
+wiki: true
+wiki_name: java
+parent: java
+order: 3
 ---
 
 **(1) System.out.println(“”);**
