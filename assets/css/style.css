@@ -22,7 +22,7 @@ a:hover {
 /* ------------------------------ */
 /* 코드 블록 및 인라인 코드 (Rouge 하이라이터) */
 /* ------------------------------ */
-pre {
+pre.highlight {
     background-color: #2d2d2d !important;
     color: #f8f8f2 !important;
     padding: 1em;
@@ -32,7 +32,16 @@ pre {
     font-size: 0.95em;
 }
 
-/* 인라인 코드 */
+/* Rouge 클래스별 하이라이팅 (기존 색상 유지) */
+pre.highlight .k { color: #ff79c6; }   /* keyword */
+pre.highlight .c { color: #6272a4; font-style: italic; }  /* comment */
+pre.highlight .s { color: #f1fa8c; }   /* string */
+pre.highlight .m { color: #bd93f9; }   /* number */
+pre.highlight .f { color: #50fa7b; }   /* function / method */
+pre.highlight .o { color: #ff5555; }   /* operator */
+pre.highlight .n { color: #f8f8f2; }   /* normal identifier */
+
+/* 인라인 코드는 기존 색상 유지 */
 code {
     background-color: #2d2d2d !important;
     color: #f8f8f2 !important;
@@ -41,15 +50,6 @@ code {
     font-family: 'Fira Code', 'Consolas', monospace;
     font-size: 0.95em;
 }
-
-/* Rouge 클래스별 하이라이팅 */
-.k { color: #ff79c6; }   /* keyword */
-.c { color: #6272a4; font-style: italic; }  /* comment */
-.s { color: #f1fa8c; }   /* string */
-.m { color: #bd93f9; }   /* number */
-.f { color: #50fa7b; }   /* function / method */
-.o { color: #ff5555; }   /* operator */
-.n { color: #f8f8f2; }   /* normal identifier */
 
 /* ------------------------------ */
 /* 버튼 예제 */
