@@ -1,6 +1,9 @@
 ---
 layout: wiki
-title: "void and data type methods"
+title: void와 자료형 매소드
+wiki_name: java
+parent: java/method(매소드)
+order: 2
 ---
 
 void는 메소드 내에서 코드를 불러와서 실행하는 것이고 자료형은 메소드 내에서 얻은 결과를 반환해준다.
