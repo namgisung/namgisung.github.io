@@ -1,7 +1,11 @@
 ---
 layout: wiki
-title: "copy of array"
+title: 배열의 복사
+wiki_name: java
+parent: java/배열
+order: 6
 ---
+
 
 배열의 복사는 두가지 방법이 있다.
 
