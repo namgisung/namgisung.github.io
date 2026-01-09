@@ -3,7 +3,7 @@ layout: wiki
 title: for문
 wiki_name: java
 parent: java/반복문
-order: 1
+order: 2
 ---
 
 for문은 반복 횟수를 알고 있을 때 적합하다. 구조가 조금 복잡하지만 직관적이라 이해하기 쉽다
