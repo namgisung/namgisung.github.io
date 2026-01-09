@@ -20,39 +20,39 @@ layout: base
       {% assign level1 = pages | where: "parent", "java" %}
       {% for l1 in level1 %}
         <li>
-          <details {% if page.url == l1.url %}open{% endif %}>
-            <summary>{{ l1.title }}</summary>
+          <!-- level1: 항상 보임 -->
+          <span class="level-1">{{ l1.title }}</span>
 
-            {% assign level2_parent = "java/" | append: l1.title %}
-            {% assign level2 = pages | where: "parent", level2_parent %}
-            {% if level2.size > 0 %}
-              <ul>
-                {% for l2 in level2 %}
-                  <li>
-                    <details {% if page.url == l2.url %}open{% endif %}>
-                      <summary>{{ l2.title }}</summary>
+          {% assign level2_parent = "java/" | append: l1.title %}
+          {% assign level2 = pages | where: "parent", level2_parent %}
+          {% if level2.size > 0 %}
+            <ul>
+              {% for l2 in level2 %}
+                <li>
+                  <!-- level2: 접히는 메뉴 -->
+                  <details {% if page.url == l2.url or page.url contains l2.url %}open{% endif %}>
+                    <summary>{{ l2.title }}</summary>
 
-                      {% assign level3_parent = level2_parent | append: "/" | append: l2.title %}
-                      {% assign level3 = pages | where: "parent", level3_parent %}
-                      {% if level3.size > 0 %}
-                        <ul>
-                          {% for l3 in level3 %}
-                            <li>
-                              <a href="{{ l3.url | relative_url }}" {% if page.url == l3.url %}class="active"{% endif %}>
-                                {{ l3.title }}
-                              </a>
-                            </li>
-                          {% endfor %}
-                        </ul>
-                      {% endif %}
+                    {% assign level3_parent = level2_parent | append: "/" | append: l2.title %}
+                    {% assign level3 = pages | where: "parent", level3_parent %}
+                    {% if level3.size > 0 %}
+                      <ul>
+                        {% for l3 in level3 %}
+                          <li>
+                            <a href="{{ l3.url | relative_url }}" {% if page.url == l3.url %}class="active"{% endif %}>
+                              {{ l3.title }}
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
 
-                    </details>
-                  </li>
-                {% endfor %}
-              </ul>
-            {% endif %}
+                  </details>
+                </li>
+              {% endfor %}
+            </ul>
+          {% endif %}
 
-          </details>
         </li>
       {% endfor %}
 
