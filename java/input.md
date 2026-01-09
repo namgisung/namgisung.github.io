@@ -1,6 +1,10 @@
 ---
 layout: wiki
-title: "input"
+title: 입력
+wiki: true
+wiki_name: java
+parent: java
+order: 2
 ---
 
 먼저 입력 받기 위해 scanner를 import해준다.
