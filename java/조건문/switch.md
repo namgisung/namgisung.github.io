@@ -1,6 +1,9 @@
 ---
 layout: wiki
-title: "switch"
+title: switch문
+wiki_name: java
+parent: java/조건문
+order: 2
 ---
 
 if문은 조건식의 결과가 참과 거짓, 두 가지 밖에 없기 때문에 경우의 수가 많아질수록 else if를 계속 추가해야 하므로 조건식이 많아져서 복잡해지고,
