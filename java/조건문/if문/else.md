@@ -1,7 +1,11 @@
 ---
 layout: wiki
-title: "else"
+title: else
+wiki_name: java
+parent: java/조건문/if문
+order: 2
 ---
+
 
 만일 조건이 거짓이라면 중괄호 안에 있는 실행문은 동작하지 않고 if문을 빠져나간다.
 
