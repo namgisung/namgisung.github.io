@@ -4,18 +4,44 @@ layout: base
 
 <h1>{{ page.title }}</h1>
 
-<ul>
+<ul class="wiki-index">
+
 {% assign pages = site.pages
   | where: "wiki_name", page.wiki_name
-  | where_exp: "p", "p.title != page.title"
+  | where: "layout", "wiki"
   | sort: "order"
 %}
 
-{% for p in pages %}
+{% assign level1 = pages | where: "parent", page.wiki_name %}
+{% for l1 in level1 %}
   <li>
-    <a href="{{ p.url | relative_url }}">
-      {{ p.title }}
-    </a>
+    <a href="{{ l1.url | relative_url }}">{{ l1.title }}</a>
+
+    {% assign level2_parent = page.wiki_name | append: "/" | append: l1.title %}
+    {% assign level2 = pages | where: "parent", level2_parent %}
+    {% if level2.size > 0 %}
+      <ul>
+        {% for l2 in level2 %}
+          <li>
+            <a href="{{ l2.url | relative_url }}">{{ l2.title }}</a>
+
+            {% assign level3_parent = level2_parent | append: "/" | append: l2.title %}
+            {% assign level3 = pages | where: "parent", level3_parent %}
+            {% if level3.size > 0 %}
+              <ul>
+                {% for l3 in level3 %}
+                  <li>
+                    <a href="{{ l3.url | relative_url }}">{{ l3.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+
   </li>
 {% endfor %}
+
 </ul>
