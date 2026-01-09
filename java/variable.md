@@ -1,7 +1,6 @@
 ---
 layout: wiki
 title: 변수
-wiki: true
 wiki_name: java
 parent: java
 order: 4
