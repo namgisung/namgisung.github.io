@@ -1,7 +1,11 @@
 ---
 layout: wiki
-title: "method"
+title: method
+wiki_name: java
+parent: java/method(매소드)
+order: 1
 ---
+
 
 메소드는 함수를 만드는 것이다.
 
