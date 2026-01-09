@@ -1,4 +1,6 @@
+/* ------------------------------ */
 /* 전체 배경 및 글자 색상 */
+/* ------------------------------ */
 body {
     background-color: #000000 !important;
     color: #f5f5f5 !important;
@@ -13,18 +15,21 @@ a {
     color: #00bfff;
     text-decoration: none;
 }
-
 a:hover {
     text-decoration: underline;
 }
 
-/* 코드 블록 */
+/* ------------------------------ */
+/* 코드 블록 및 인라인 코드 (Rouge 하이라이터) */
+/* ------------------------------ */
 pre {
     background-color: #2d2d2d !important;
     color: #f8f8f2 !important;
     padding: 1em;
     border-radius: 8px;
     overflow-x: auto;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.95em;
 }
 
 /* 인라인 코드 */
@@ -33,9 +38,22 @@ code {
     color: #f8f8f2 !important;
     padding: 2px 4px;
     border-radius: 4px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 0.95em;
 }
 
+/* Rouge 클래스별 하이라이팅 */
+.k { color: #ff79c6; }   /* keyword */
+.c { color: #6272a4; font-style: italic; }  /* comment */
+.s { color: #f1fa8c; }   /* string */
+.m { color: #bd93f9; }   /* number */
+.f { color: #50fa7b; }   /* function / method */
+.o { color: #ff5555; }   /* operator */
+.n { color: #f8f8f2; }   /* normal identifier */
+
+/* ------------------------------ */
 /* 버튼 예제 */
+/* ------------------------------ */
 button, .button {
     background-color: #00bfff;
     color: #000;
@@ -51,9 +69,8 @@ button:hover, .button:hover {
 }
 
 /* ------------------------------ */
-/* 📌 위키 레이아웃 */
+/* 위키 레이아웃 */
 /* ------------------------------ */
-
 .wiki-container {
     display: flex;
     gap: 20px;
@@ -89,12 +106,12 @@ button:hover, .button:hover {
 
 .wiki-content {
     flex: 1;
+    padding: 0 20px;
 }
 
 /* ------------------------------ */
-/* 📌 헤더 + 네비게이션 */
+/* 헤더 + 네비게이션 */
 /* ------------------------------ */
-
 header {
     background: #111;
     padding: 20px;
@@ -107,7 +124,6 @@ header {
     margin-bottom: 10px;
 }
 
-/* 네비 메뉴 */
 .nav-menu {
     margin-top: 10px;
 }
