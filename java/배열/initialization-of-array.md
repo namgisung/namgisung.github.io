@@ -1,7 +1,11 @@
 ---
 layout: wiki
-title: "initialization of array"
+title: 매열의 초기화
+wiki_name: java
+parent: java/배열
+order: 4
 ---
+
 
 배열은 생성과 동시에 자동적으로 자신의 타입에 해당하는 기본값으로 초기화되므로 배열을 사용하기 전에 따로 초기화를 해주지 않아도 되지만, 원하는 값을 저장하려면 아래와 같이 각 요소마다 값을 지정해 줘야 한다.
 ```java
