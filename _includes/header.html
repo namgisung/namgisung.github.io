@@ -1,5 +1,6 @@
 <header>
-  <h1 class="site-title">{{ site.title }}</h1>
-
-
+  <h1 class="site-title">
+    <a href="{{ site.baseurl | prepend: site.url }}">{{ site.title }}</a>
+  </h1>
 </header>
+
