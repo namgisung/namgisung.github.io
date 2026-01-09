@@ -1,6 +1,9 @@
 ---
 layout: wiki
-title: "else if"
+title: else if
+wiki_name: java
+parent: java/조건문/if문
+order: 3
 ---
 
 그리고 2개 이상의 조건식이 있다면 else if를 써서 "만약 ~면 ~를 실행하고 그 조건이 아니라 ~라면 ~를 실행한다" 를 표현할수 있다.
