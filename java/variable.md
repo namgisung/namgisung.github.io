@@ -1,8 +1,11 @@
 ---
 layout: wiki
-title: "variable"
+title: 변수
+wiki: true
+wiki_name: java
+parent: java
+order: 3
 ---
-
 **(1) 기본 구조**
 
 ```java
