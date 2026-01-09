@@ -2,8 +2,8 @@
 layout: wiki
 title: if
 wiki_name: java
-parent: java/조건문
-order: 6
+parent: java/조건문/if문
+order: 1
 ---
 
 
