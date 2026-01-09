@@ -1,6 +1,9 @@
 ---
 layout: wiki
-title: "method parameters"
+title: 매소드 매개변수
+wiki_name: java
+parent: java/method(매소드)
+order: 3
 ---
 
 메소드의 매개변수란 외부로부터 입력 값을 받기 위해 메소드의 괄호 안에 선언하는 변수라고 생각하면 된다.
