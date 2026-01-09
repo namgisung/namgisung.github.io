@@ -1,7 +1,11 @@
 ---
 layout: wiki
-title: "Array length and index"
+title: 배열의 길이와 인덱스
+wiki_name: java
+parent: java/배열
+order: 3
 ---
+
 
 생성된 배열의 각 저장공간응 '배열의 요소'라고 하며, '배열이름[인덱스]'의 형식으로 배열의 요소에 접근한다. 
 
