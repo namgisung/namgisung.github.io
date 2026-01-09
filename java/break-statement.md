@@ -1,7 +1,11 @@
 ---
 layout: wiki
-title: "break statement"
+title: break문
+wiki_name: java
+parent: java
+order: 7
 ---
+
 
 break문은 현재 위치에서 가장 가까운 sxitch문이나 반복문을 빠져나온다
 
