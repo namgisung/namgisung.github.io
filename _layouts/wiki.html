@@ -4,39 +4,38 @@ layout: base
 
 <div class="wiki-container">
 
-  <!-- 🔹 사이드바 -->
+  <!-- 사이드바 -->
   <aside class="wiki-sidebar">
 
-    {% assign pages = site.pages | where_exp: "p", "p.parent" | sort: "order" %}
-    {% assign roots = pages | where: "parent", page.root %}
+    {% assign pages = site.pages | where_exp:"p","p.parent" | sort:"order" %}
+    {% assign roots = pages | where:"parent","java" %}
 
     <details open>
-      <summary>{{ page.root }}</summary>
+      <summary>Java Wiki</summary>
       <ul>
-
-        {% for r in roots %}
+        {% for root in roots %}
           <li>
-            <a href="{{ r.url | relative_url }}">{{ r.title }}</a>
+            <strong>{{ root.title }}</strong>
 
-            {% assign children = pages | where: "parent", page.root | append: "/" | append: r.title %}
+            {% assign children = pages | where:"parent", "java/" | append: root.title %}
             {% if children.size > 0 %}
               <ul>
-                {% for c in children %}
+                {% for child in children %}
                   <li>
-                    <a href="{{ c.url | relative_url }}">{{ c.title }}</a>
+                    <a href="{{ child.url | relative_url }}">{{ child.title }}</a>
                   </li>
                 {% endfor %}
               </ul>
             {% endif %}
+
           </li>
         {% endfor %}
-
       </ul>
     </details>
 
   </aside>
 
-  <!-- 🔹 본문 -->
+  <!-- 본문 -->
   <main class="wiki-content">
     {{ content }}
   </main>
