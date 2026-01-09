@@ -1,7 +1,9 @@
 ---
 layout: wiki
 title: "자바 프로그래밍 위키"
-parent: Java
+wiki: true
+wiki_name: java
+parent: java
 order: 1
 ---
 
