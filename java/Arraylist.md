@@ -1,6 +1,9 @@
 ---
 layout: wiki
-title: "Arraylist"
+title: Arraylist
+wiki_name: java
+parent: java
+order: 11
 ---
 
 Arraylist는 배열과 비슷한 리스트를 사용한다.
