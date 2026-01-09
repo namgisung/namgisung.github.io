@@ -7,22 +7,40 @@ layout: base
   <!-- 사이드바 -->
   <aside class="wiki-sidebar">
 
-    {% assign pages = site.pages | where_exp:"p","p.parent" | sort:"order" %}
-    {% assign roots = pages | where:"parent","java" %}
+    {% assign pages = site.pages
+      | where_exp: "p", "p.wiki_name == 'java'"
+      | where_exp: "p", "p.layout != 'wiki-index'"
+      | sort: "order"
+    %}
 
+    <!-- 1단계: Java -->
     <details open>
       <summary>Java Wiki</summary>
       <ul>
+
+        {% assign roots = pages | where: "parent", "java" %}
         {% for root in roots %}
           <li>
             <strong>{{ root.title }}</strong>
 
-            {% assign children = pages | where:"parent", "java/" | append: root.title %}
+            {% assign children = pages | where: "parent", "java/" | append: root.title %}
             {% if children.size > 0 %}
               <ul>
                 {% for child in children %}
                   <li>
                     <a href="{{ child.url | relative_url }}">{{ child.title }}</a>
+
+                    {% assign grands = pages | where: "parent", "java/" | append: root.title | append: "/" | append: child.title %}
+                    {% if grands.size > 0 %}
+                      <ul>
+                        {% for g in grands %}
+                          <li>
+                            <a href="{{ g.url | relative_url }}">{{ g.title }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+
                   </li>
                 {% endfor %}
               </ul>
@@ -30,6 +48,7 @@ layout: base
 
           </li>
         {% endfor %}
+
       </ul>
     </details>
 
