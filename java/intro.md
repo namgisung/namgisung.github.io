@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: "자바 프로그래밍 위키"
+title: "개요"
 wiki: true
 wiki_name: java
 parent: java
