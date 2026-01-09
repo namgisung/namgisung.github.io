@@ -1,30 +1,8 @@
 ---
-layout: base
-title: Java 위키
-root: Java
+layout: wiki-index
+title: Java Wiki
+wiki: java
+wiki_root: true
 ---
 
-<h1>Java 위키</h1>
-
-{% assign pages = site.pages | where_exp: "p", "p.parent contains 'Java'" | sort: "order" %}
-
-<ul>
-{% for p in pages %}
-  {% if p.parent == 'Java' %}
-    <li>
-      <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
-
-      {% assign children = pages | where: "parent", 'Java/' | append: p.title %}
-      {% if children.size > 0 %}
-        <ul>
-          {% for c in children %}
-            <li>
-              <a href="{{ c.url | relative_url }}">{{ c.title }}</a>
-            </li>
-          {% endfor %}
-        </ul>
-      {% endif %}
-    </li>
-  {% endif %}
-{% endfor %}
-</ul>
+## 목차
