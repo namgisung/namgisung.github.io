@@ -1,7 +1,6 @@
 ---
 layout: wiki
 title: "개요"
-wiki: true
 wiki_name: java
 parent: java
 order: 1
