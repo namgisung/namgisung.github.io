@@ -1,7 +1,11 @@
 ---
 layout: wiki
-title: "while statement"
+title: while문
+wiki_name: java
+parent: java/반복문
+order: 1
 ---
+
 
 while문은 반복문으로 조건식이 참이면 실행문을 실행하는것을 반복한다
 
