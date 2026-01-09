@@ -1,11 +1,10 @@
 title: Gisung Lab
-email: your-email@example.com
+email: 2006ngs@gmail.com
 description: >-
   난 대학에서 배울거 정리할거임
 baseurl: "" 
 url: ""
-twitter_username: jekyllrb
-github_username: jekyll
+github_username: namgisung
 
 # Build settings
 plugins:
