@@ -1,7 +1,11 @@
 ---
 layout: wiki
-title: "Declaration and creation of arrays"
+title: 배열의 선언과 생성
+wiki_name: java
+parent: java/배열
+order: 2
 ---
+
 
 선언방법: 타입[] 변수이름:
 선언 예: int[] score:, String[] name:
