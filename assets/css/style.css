@@ -135,13 +135,10 @@ header {
     text-decoration: none;
 }
 
-.nav-menu a:hover {
-    color: #00bfff;
-}
 
 /* site-title 링크 색상 유지 + hover 강조 */
 .site-title a {
-    color: inherit;        /* 글자색 그대로 */
+    color: #ffffff!important;        /* 글자색 그대로 */
     text-decoration: none;
 }
 
@@ -149,15 +146,4 @@ header {
     color: #00bfff;        /* hover 시 강조 */
 }
 
-/* 헤더 네비 메뉴 링크 색상 고정 */
-.nav-menu a {
-    color: #ffffff;        /* 항상 흰색 */
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 18px;
-}
-
-.nav-menu a:hover {
-    color: #ffffff;        /* hover 시에도 흰색 유지 */
-}
 
