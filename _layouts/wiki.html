@@ -23,20 +23,32 @@ layout: base
           {% assign level2_parent = "java/" | append: l1.title %}
           {% assign level2 = pages | where: "parent", level2_parent %}
 
-          {% if level2.size > 0 %}
-            <!-- level1에 자식 있음 → 접는 메뉴 -->
-            <details {% if page.url == l1.url or page.url contains l1.url %}open{% endif %}>
-              <summary>{{ l1.title }}</summary>
+          <details {% if page.url == l1.url or page.url contains l1.url %}open{% endif %}>
+            <summary>
+              {% if level2.size > 0 %}
+                {{ l1.title }}
+              {% else %}
+                <a href="{{ l1.url | relative_url }}">{{ l1.title }}</a>
+              {% endif %}
+            </summary>
+
+            {% if level2.size > 0 %}
               <ul>
                 {% for l2 in level2 %}
-                  <li>
-                    {% assign level3_parent = level2_parent | append: "/" | append: l2.title %}
-                    {% assign level3 = pages | where: "parent", level3_parent %}
+                  {% assign level3_parent = level2_parent | append: "/" | append: l2.title %}
+                  {% assign level3 = pages | where: "parent", level3_parent %}
 
-                    {% if level3.size > 0 %}
-                      <!-- level2에 자식 있음 → 접는 메뉴 -->
-                      <details {% if page.url == l2.url or page.url contains l2.url %}open{% endif %}>
-                        <summary>{{ l2.title }}</summary>
+                  <li>
+                    <details {% if page.url == l2.url or page.url contains l2.url %}open{% endif %}>
+                      <summary>
+                        {% if level3.size > 0 %}
+                          {{ l2.title }}
+                        {% else %}
+                          <a href="{{ l2.url | relative_url }}">{{ l2.title }}</a>
+                        {% endif %}
+                      </summary>
+
+                      {% if level3.size > 0 %}
                         <ul>
                           {% for l3 in level3 %}
                             <li>
@@ -46,22 +58,14 @@ layout: base
                             </li>
                           {% endfor %}
                         </ul>
-                      </details>
-                    {% else %}
-                      <!-- level2 자식 없음 → 그냥 링크 -->
-                      <a href="{{ l2.url | relative_url }}" {% if page.url == l2.url %}class="active"{% endif %}>
-                        {{ l2.title }}
-                      </a>
-                    {% endif %}
-
+                      {% endif %}
+                    </details>
                   </li>
+
                 {% endfor %}
               </ul>
-            </details>
-          {% else %}
-            <!-- level1 자식 없음 → 그냥 표시 -->
-            <span class="level-1">{{ l1.title }}</span>
-          {% endif %}
+            {% endif %}
+          </details>
 
         </li>
       {% endfor %}
