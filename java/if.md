@@ -1,7 +1,11 @@
 ---
 layout: wiki
-title: "if"
+title: if
+wiki_name: java
+parent: java/조건문
+order: 1
 ---
+
 
 if는 "만약"이라는 뜻으로 조건문에 쓰인다.
 
