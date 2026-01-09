@@ -138,3 +138,13 @@ header {
 .nav-menu a:hover {
     color: #00bfff;
 }
+
+.site-title a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.site-title a:hover {
+    color: #00bfff;
+}
+
