@@ -1,6 +1,9 @@
 ---
 layout: wiki
-title: "Local and global variables"
+title: 지역변수와 전역변수
+wiki_name: java
+parent: java/method(매소드)
+order: 4
 ---
 
 **(1) 전역변수**
