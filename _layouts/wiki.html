@@ -8,34 +8,36 @@ layout: base
   <aside class="wiki-sidebar">
 
     {% assign pages = site.pages
-      | where_exp: "p", "p.wiki_name == 'java'"
-      | where_exp: "p", "p.layout != 'wiki-index'"
+      | where: "wiki_name", "java"
+      | where_exp: "p", "p.layout == 'wiki'"
       | sort: "order"
     %}
 
-    <!-- 1단계: Java -->
     <details open>
       <summary>Java Wiki</summary>
       <ul>
 
-        {% assign roots = pages | where: "parent", "java" %}
-        {% for root in roots %}
+        <!-- 1단계 -->
+        {% assign level1 = pages | where: "parent", "java" %}
+        {% for l1 in level1 %}
           <li>
-            <strong>{{ root.title }}</strong>
+            <strong>{{ l1.title }}</strong>
 
-            {% assign children = pages | where: "parent", "java/" | append: root.title %}
-            {% if children.size > 0 %}
+            <!-- 2단계 -->
+            {% assign level2 = pages | where: "parent", "java/" | where_exp: "p", "p.parent == 'java/' | append: l1.title" %}
+            {% if level2.size > 0 %}
               <ul>
-                {% for child in children %}
+                {% for l2 in level2 %}
                   <li>
-                    <a href="{{ child.url | relative_url }}">{{ child.title }}</a>
+                    <a href="{{ l2.url | relative_url }}">{{ l2.title }}</a>
 
-                    {% assign grands = pages | where: "parent", "java/" | append: root.title | append: "/" | append: child.title %}
-                    {% if grands.size > 0 %}
+                    <!-- 3단계 -->
+                    {% assign level3 = pages | where_exp: "p", "p.parent == 'java/' | append: l1.title | append: '/' | append: l2.title" %}
+                    {% if level3.size > 0 %}
                       <ul>
-                        {% for g in grands %}
+                        {% for l3 in level3 %}
                           <li>
-                            <a href="{{ g.url | relative_url }}">{{ g.title }}</a>
+                            <a href="{{ l3.url | relative_url }}">{{ l3.title }}</a>
                           </li>
                         {% endfor %}
                       </ul>
