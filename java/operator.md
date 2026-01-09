@@ -1,6 +1,10 @@
 ---
 layout: wiki
-title: "operator"
+title: 연산자
+wiki: true
+wiki_name: java
+parent: java
+order: 5
 ---
 **(1) 용어**
 
