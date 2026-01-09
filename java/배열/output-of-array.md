@@ -1,7 +1,11 @@
 ---
 layout: wiki
-title: "output of array"
+title: 배열의 출력
+wiki_name: java
+parent: java/배열
+order: 5
 ---
+
 
 **(1) for문 활용**
 
