@@ -3,7 +3,7 @@ layout: home
 title: Home
 ---
 
-##  wiki
+## ◻ wiki
 {% assign wikis = site.pages | where: "wiki", true | sort: "order" %}
 
 <ul>
