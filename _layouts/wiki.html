@@ -7,39 +7,49 @@ layout: base
   <!-- 사이드바 -->
   <aside class="wiki-sidebar">
 
+    {% assign wiki = page.wiki_name %}
+
     {% assign pages = site.pages
-      | where: "wiki_name", "java"
       | where: "layout", "wiki"
+      | where: "wiki_name", wiki
       | sort: "order"
     %}
 
-    <div class="wiki-title">Java Wiki</div>
+    <!-- 위키 제목 -->
+    <div class="wiki-title">
+      {{ page.wiki_title | default: wiki | upcase }} Wiki
+    </div>
 
     <ul class="wiki-list">
-      {% assign level1 = pages | where: "parent", "java" %}
-      {% for l1 in level1 %}
-        <li>
-          {% assign level2_parent = "java/" | append: l1.title %}
-          {% assign level2 = pages | where: "parent", level2_parent %}
 
+      <!-- 1단계 (대분류) -->
+      {% assign level1 = pages | where: "parent", wiki %}
+      {% for l1 in level1 %}
+        {% assign level1_path = wiki | append: "/" | append: l1.title %}
+        {% assign level2 = pages | where: "parent", level1_path %}
+
+        <li>
           {% if level2.size > 0 %}
-            <!-- 자식 있는 level1 → 접는 메뉴 -->
-            <details {% if page.url == l1.url or page.url contains l1.url %}open{% endif %}>
+            <!-- 접히는 메뉴 (대분류는 클릭 X) -->
+            <details {% if page.parent contains l1.title %}open{% endif %}>
               <summary>{{ l1.title }}</summary>
               <ul>
+
+                <!-- 2단계 -->
                 {% for l2 in level2 %}
-                  {% assign level3_parent = level2_parent | append: "/" | append: l2.title %}
-                  {% assign level3 = pages | where: "parent", level3_parent %}
+                  {% assign level2_path = level1_path | append: "/" | append: l2.title %}
+                  {% assign level3 = pages | where: "parent", level2_path %}
 
                   <li>
                     {% if level3.size > 0 %}
-                      <!-- 자식 있는 level2 → 접는 메뉴 -->
-                      <details {% if page.url == l2.url or page.url contains l2.url %}open{% endif %}>
+                      <!-- 접히는 메뉴 -->
+                      <details {% if page.parent contains l2.title %}open{% endif %}>
                         <summary>{{ l2.title }}</summary>
                         <ul>
                           {% for l3 in level3 %}
                             <li>
-                              <a href="{{ l3.url | relative_url }}" {% if page.url == l3.url %}class="active"{% endif %}>
+                              <a href="{{ l3.url | relative_url }}"
+                                 {% if page.url == l3.url %}class="active"{% endif %}>
                                 {{ l3.title }}
                               </a>
                             </li>
@@ -47,26 +57,28 @@ layout: base
                         </ul>
                       </details>
                     {% else %}
-                      <!-- 자식 없는 level2 → 버튼 -->
-                      <a href="{{ l2.url | relative_url }}" {% if page.url == l2.url %}class="active"{% endif %}>
+                      <!-- 일반 링크 -->
+                      <a href="{{ l2.url | relative_url }}"
+                         {% if page.url == l2.url %}class="active"{% endif %}>
                         {{ l2.title }}
                       </a>
                     {% endif %}
                   </li>
+
                 {% endfor %}
               </ul>
             </details>
           {% else %}
-            <!-- 자식 없는 level1 → 버튼 -->
-            <a href="{{ l1.url | relative_url }}" {% if page.url == l1.url %}class="active"{% endif %}>
+            <!-- 자식 없는 항목만 클릭 가능 -->
+            <a href="{{ l1.url | relative_url }}"
+               {% if page.url == l1.url %}class="active"{% endif %}>
               {{ l1.title }}
             </a>
           {% endif %}
-
         </li>
       {% endfor %}
-    </ul>
 
+    </ul>
   </aside>
 
   <!-- 본문 -->
