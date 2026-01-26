@@ -58,4 +58,4 @@ nextInt() 뒤에 nextLine() 쓰면 문제가 생긴다.
 int a = scanner.nextInt();
 String s = scanner.nextLine(); // 빈 줄 먹음
 ```
-입력 받고 앤터를 누르면 입력에는 \n도 같이 들어오지만 extInt()가 개행 문자 \n을 안 먹는다 
+입력 받고 앤터를 누르면 입력에는 \n도 같이 들어오지만 nextInt()가 개행 문자 \n을 안 먹는다 
