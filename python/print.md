@@ -1,3 +1,10 @@
+---
+layout: wiki
+title: "입력"
+wiki_name: python
+parent: python
+order: 4
+---
 
 **(1) print(" ");**
 
