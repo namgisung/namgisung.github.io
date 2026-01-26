@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: "개요"
+title: "입력"
 wiki_name: python
 parent: python
 order: 3
