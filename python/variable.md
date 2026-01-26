@@ -3,7 +3,7 @@ layout: wiki
 title: 변수
 wiki_name: python
 parent: python
-order: 1
+order: 2
 ---
 
 **(1) 기본 구조**
