@@ -17,6 +17,8 @@ int main(void) {
 }
 ```
 
+---
+
 구성 요소
 
 1. #include → 헤더 포함
