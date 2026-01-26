@@ -1,4 +1,10 @@
-
+---
+layout: wiki
+title: "개요"
+wiki_name: python
+parent: python
+order: 3
+---
 
 먼저 파이썬에서는 입력을 받기 위해 별도의 import가 필요 없다.
 
