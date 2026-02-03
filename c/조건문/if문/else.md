@@ -1,8 +1,8 @@
 ---
 layout: wiki
 title: else
-wiki_name: java
-parent: java/조건문/if문
+wiki_name: c
+parent: c/조건문/if문
 order: 2
 ---
 
