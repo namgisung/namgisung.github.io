@@ -40,12 +40,13 @@ System.out.println(intValue);
 
 **(4) 변수 기본형 종류**
 
-논리형: boolean (true나 false 중 하나의 값을 가지며, 조건식과 논리적 계산에 사용한다)
+| 종류  | 형식                     |
+| ---- | ---------------------- |
+| 논리형 |  boolen              |
+| 문자형 | char, string |
+| 정수형 | int                    |
+| 실수형 | float, double               |
 
-문자형: char, string
-
-정수형: int
-
-실수형: float, double
+(논리현 boolen은 true나 false 중 하나의 값을 가지며, 조건식과 논리적 계산에 사용한다)
 
 (char은 한 문자만 저장할수 있으면 저장할때 문자 양쪽에 '를 붙여줘야 한다. string은 문자나 문자열을 저장할수 있으며 저장할때 양쪽에 "를 붙여줘야 한다)
