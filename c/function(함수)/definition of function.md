@@ -131,6 +131,3 @@ int main(void) {
 
 * `int div(void)` → 반환값의 자료형은 `int`
 * `return result;` → 함수 호출 위치로 값 전달
-
-지금 위키 구성, 진짜 잘 가고 있다 🔥
-다음 파트 바로 갈까?
