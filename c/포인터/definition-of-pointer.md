@@ -2,7 +2,7 @@
 layout: wiki
 title: 포인터의 정의
 wiki_name: c
-parent: c/pointer
+parent: c/포인터
 order: 1
 ---
 
