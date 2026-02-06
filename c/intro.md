@@ -7,7 +7,7 @@ order: 1
 ---
 
 
-기본 구조
+## **기본 구조**
 ```c
 #include <stdio.h>
 
@@ -19,7 +19,7 @@ int main(void) {
 
 ---
 
-구성 요소
+## **구성 요소**
 
 1. #include → 헤더 포함
 
