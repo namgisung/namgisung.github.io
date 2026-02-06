@@ -8,8 +8,6 @@ order: 1
 
 ## malloc
 
-### malloc이란?
-
 `malloc`은 **프로그램 실행 중(Runtime)에 필요한 만큼 메모리를 힙(Heap) 영역에 할당**해주는 함수이다.
 
 * `malloc`은 **Memory Allocation**의 약자
@@ -127,7 +125,7 @@ int* p = (int*)malloc(sizeof(int) * 10);
 
 ### malloc 사용 시 주의점
 
-❌ 초기화되지 않는다
+초기화되지 않는다
 
 ```c
 int* p = (int*)malloc(sizeof(int));
@@ -138,7 +136,7 @@ printf("%d\n", *p); // 쓰레기 값
 
 ---
 
-❌ free 하지 않으면 메모리 누수 발생
+free 하지 않으면 메모리 누수 발생
 
 ```c
 malloc(...);
