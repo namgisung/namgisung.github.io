@@ -1,10 +1,12 @@
 ---
 layout: wiki
-title: Arraylist
+title: arraylist
 wiki_name: java
 parent: java
 order: 11
 ---
+
+## **arraylist**
 
 Arraylist는 배열과 비슷한 리스트를 사용한다.
 
