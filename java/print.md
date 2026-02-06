@@ -6,7 +6,7 @@ parent: java
 order: 3
 ---
 
-## ""출력""
+## **출력**
 
 ### **(1) System.out.println(“”);**
 
