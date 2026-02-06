@@ -17,7 +17,7 @@ Arraylist는 배열과 비슷한 리스트를 사용한다.
 import java.util.ArrayList;
 ```
 
-**(1) 선언**
+### **(1) 선언**
 ```java
 ArrayList<변수타입> arrayList = new ArrayList<>();
 ```
@@ -27,7 +27,7 @@ ArrayList<String> arrayList = new ArrayList<>();
 ArrayList<Integer> arrayList1 = new ArrayList<>();
 ```
 
-**(2) 데이터 추가**
+### **(2) 데이터 추가**
 ```java
 arrayList.add(0);
 arrayList.add(1);
@@ -47,7 +47,7 @@ for(int i: arrayList)
 }
 ```
 
-**(3) 데이터 제거**
+### **(3) 데이터 제거**
 ```java
 arrayList.remove(1); //원하는 인덱스 데이터 삭제.
 ```
@@ -61,7 +61,7 @@ arrayList.size()
 
 배열과 달리 배열은 저장할 수 있는 길이이지만 arrayList는 저장한 곳까지의 길이이다.
 
-**(5) 출력**
+### **(5) 출력**
 
 1. 해당 객체 명으로 출력
 ```java
