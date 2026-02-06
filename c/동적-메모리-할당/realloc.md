@@ -99,7 +99,7 @@ arr = (int*)realloc(arr, 3 * sizeof(int));
 
 ### realloc 실패 처리 (중요)
 
-❌ 아래 코드는 위험
+아래 코드는 위험
 
 ```c
 arr = realloc(arr, newSize);
@@ -153,7 +153,7 @@ realloc(arr, 0);
 
 | 함수      | 역할      | 초기화 |
 | ------- | ------- | --- |
-| malloc  | 메모리 할당  | ❌   |
+| malloc  | 메모리 할당  | ❌  |
 | calloc  | 여러 개 할당 | ⭕ 0 |
 | realloc | 크기 변경   | 유지  |
 
