@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: "입력"
+title: "출력"
 wiki_name: python
 parent: python
 order: 4
