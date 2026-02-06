@@ -6,7 +6,9 @@ parent: java
 order: 3
 ---
 
-**(1) System.out.println(“”);**
+## ""출력""
+
+### **(1) System.out.println(“”);**
 
 “”안에 문자를 입력하거나 변수를 입력하여 출력할 수 있다.
 
@@ -18,7 +20,7 @@ order: 3
 System.out.println("Hello, World!");
 ```
 
-**(2) System.out.print(“”);**
+### **(2) System.out.print(“”);**
 
 println()과 기능은 비슷하나 println()는 실행 후 줄바꿈을 하지만 
 
