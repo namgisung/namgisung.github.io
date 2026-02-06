@@ -17,6 +17,8 @@ Arraylist는 배열과 비슷한 리스트를 사용한다.
 import java.util.ArrayList;
 ```
 
+---
+
 ### **(1) 선언**
 ```java
 ArrayList<변수타입> arrayList = new ArrayList<>();
@@ -26,6 +28,8 @@ ArrayList<변수타입> arrayList = new ArrayList<>();
 ArrayList<String> arrayList = new ArrayList<>();
 ArrayList<Integer> arrayList1 = new ArrayList<>();
 ```
+
+---
 
 ### **(2) 데이터 추가**
 ```java
@@ -47,19 +51,25 @@ for(int i: arrayList)
 }
 ```
 
+---
+
 ### **(3) 데이터 제거**
 ```java
 arrayList.remove(1); //원하는 인덱스 데이터 삭제.
 ```
 뒤에 remove(인덱스값)을 이용하여 데이터를 삭제한다.
 
-**(4) 길이**
+---
+
+### **(4) 길이**
 ```java
 arrayList.size()
 ```
 배열에서는 length()였지만 arraylist는 size()이다.
 
 배열과 달리 배열은 저장할 수 있는 길이이지만 arrayList는 저장한 곳까지의 길이이다.
+
+---
 
 ### **(5) 출력**
 
