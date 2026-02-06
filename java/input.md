@@ -6,6 +6,8 @@ parent: java
 order: 2
 ---
 
+## **입력**
+
 먼저 입력 받기 위해 scanner를 import해준다.
 ```java
 import java.util.Scanner;
@@ -51,7 +53,7 @@ System.out.println(a + " " + b);
 
 ---
 
-**주의사항**
+### **주의사항**
 
 nextInt() 뒤에 nextLine() 쓰면 문제가 생긴다.
 ```java
