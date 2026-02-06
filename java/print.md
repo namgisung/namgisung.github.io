@@ -20,13 +20,17 @@ order: 3
 System.out.println("Hello, World!");
 ```
 
+---
+
 ### **(2) System.out.print(“”);**
 
 println()과 기능은 비슷하나 println()는 실행 후 줄바꿈을 하지만 
 
 print()는 실행 후 줄바꿈을 하지 않는다.
 
-**(3) System.out.printf();**
+---
+
+### **(3) System.out.printf();**
 ``` java
 System.out.printf(“출력%d”,a);
 ```
@@ -34,7 +38,7 @@ System.out.printf(“출력%d”,a);
 
 println은 출력하면 줄바꿈을 하지만 printf는 줄바꿈을 하지 않는다.
 
-
+---
 
 **(4) 지시자:**
 
