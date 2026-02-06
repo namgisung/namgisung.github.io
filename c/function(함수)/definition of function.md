@@ -6,9 +6,6 @@ parent: c/function(함수)
 order: 1
 ---
 
-
-# 함수 (Function)
-
 ## 함수의 정의
 
 C 언어에서 **함수(function)** 란
