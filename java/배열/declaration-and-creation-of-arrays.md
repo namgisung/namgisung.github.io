@@ -6,6 +6,7 @@ parent: java/배열
 order: 2
 ---
 
+## **배열의 선언과 생성**
 
 선언방법: 타입[] 변수이름:
 선언 예: int[] score:, String[] name:
