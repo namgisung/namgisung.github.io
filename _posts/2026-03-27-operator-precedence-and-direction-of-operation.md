@@ -1,6 +1,6 @@
 ---
 layout: base
-title:  "[c,python,java 공용] operator-precedence-and-direction-of-operation"
+title:  "[c,python,java 공용] 연산자 우선순위와 연산방향"
 date:   2026-03-27 18:20
 categories: [c python java 공용]
 ---
