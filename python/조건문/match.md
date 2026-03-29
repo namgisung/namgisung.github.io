@@ -75,5 +75,3 @@ match x:
     case "banana":
         print("바나나")
 ```
-
----
