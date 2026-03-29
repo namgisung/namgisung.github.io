@@ -1,3 +1,10 @@
+---
+layout: wiki
+title: list
+wiki_name: python
+parent: python/리스트
+order: 1
+---
 
 ## **리스트**
 리스트란 여러 개의 값을 하나의 묶음으로 다루는 것이다.
