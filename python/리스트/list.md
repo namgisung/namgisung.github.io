@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: list
+title: 리스트
 wiki_name: python
 parent: python/리스트
 order: 1
