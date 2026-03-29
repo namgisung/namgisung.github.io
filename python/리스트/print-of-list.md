@@ -3,7 +3,7 @@ layout: wiki
 title: 리스트의 출력
 wiki_name: python
 parent: python/리스트
-order: 7
+order: 6
 ---
 
 ## **리스트의 출력**
