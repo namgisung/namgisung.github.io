@@ -24,6 +24,8 @@ score[3] = 80
 score[4] = 90
 ```
 
+-----
+
 ### **(1) for문 활용**
 ```python
 score = [0] * 5
@@ -31,6 +33,8 @@ score = [0] * 5
 for i in range(len(score)):
     score[i] = i * 10 + 50
 ```
+
+-----
 
 ## **(2) 리스트 생성과 초기화를 동시에 하기**
 ```python
