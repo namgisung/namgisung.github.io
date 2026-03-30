@@ -17,7 +17,7 @@ continue문은 반복문 내에서만 사용할 수 있으며,
 
 ### **(1) 기본 사용**
 
-```python id="m8v2kx"
+```python
 for i in range(0, 11):
     if i % 3 == 0:
         continue
