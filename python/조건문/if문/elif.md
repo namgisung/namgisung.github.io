@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: else if
+title: elif
 wiki_name: python
 parent: python/조건문/if문
 order: 3
@@ -15,7 +15,7 @@ order: 3
 
 ### **(1) 기본 구조**
 
-```python id="zq2m8n"
+```python
 if 조건식:
     # 실행문
 elif 조건식:
