@@ -11,7 +11,7 @@ order: 2
 for문은 반복 횟수를 알고 있을 때 적합하다.
 구조가 간단하며 직관적이라 이해하기 쉽다.
 
-```python id="x2n8qp"
+```python
 for i in range(1, 6):
     print("yes")
 ```
@@ -24,7 +24,7 @@ for i in range(1, 6):
 
 for문의 구조는 다음과 같다
 
-```python id="m4z1tb"
+```python
 for 변수 in 범위:
     # 실행문
 ```
@@ -50,7 +50,7 @@ for i in range(1, 6):
 
 Python에서는 반복 횟수를 `range()`로 지정한다.
 
-```python id="v6y3hk"
+```python
 range(시작, 끝)
 ```
 
