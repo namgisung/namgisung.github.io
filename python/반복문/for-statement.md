@@ -39,7 +39,7 @@ for문은 범위(range)에 따라 반복된다.
 
 실행문을 수행하는 과정을 반복한다.
 
-```python id="d7c9wf"
+```python
 for i in range(1, 6):
     print(i)
 ```
@@ -56,7 +56,7 @@ range(시작, 끝)
 
 시작부터 끝-1까지 반복
 
-```python id="p2r8sj"
+```python
 range(1, 6)  # 1,2,3,4,5
 ```
 
