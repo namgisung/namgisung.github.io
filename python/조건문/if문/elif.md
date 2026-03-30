@@ -24,7 +24,7 @@ else:
     # 실행문
 ```
 
-```python id="p1k9sx"
+```python
 c = 0
 if c == 0:
     print(c)
