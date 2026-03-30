@@ -15,7 +15,7 @@ break문은 현재 위치에서 가장 가까운 반복문을 빠져나온다.
 
 ### **(1) 기본 사용**
 
-```python id="q8f2mz"
+```python
 sum = 0
 i = 1
 
@@ -39,7 +39,7 @@ while True:
 
 ## for문에서 사용
 
-```python id="m3v9kx"
+```python
 for i in range(1, 10):
     if i == 5:
         break
