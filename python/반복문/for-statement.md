@@ -66,7 +66,7 @@ range(1, 6)  # 1,2,3,4,5
 
 ### (1) 0부터 시작
 
-```python id="n1q7ye"
+```python
 for i in range(5):
     print(i)
 ```
@@ -77,7 +77,7 @@ for i in range(5):
 
 ### (2) 증가 간격 지정
 
-```python id="u8k3mz"
+```python
 for i in range(1, 10, 2):
     print(i)
 ```
