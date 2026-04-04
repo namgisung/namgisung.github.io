@@ -3,7 +3,7 @@ layout: wiki
 title: 문자열 + split
 wiki_name: python
 parent: python
-order: 12
+order: 13
 ---
 
 ## **문자열**
