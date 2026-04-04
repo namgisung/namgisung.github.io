@@ -1,7 +1,7 @@
 ---
 layout: base
 title:  "[python 잡다한것] 파이썬 객체 정리"
-date:   2026-04-04 22:55
+date:   2026-04-04
 categories: [python 잡다한것]
 ---
 
