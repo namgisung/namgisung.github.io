@@ -25,12 +25,27 @@ categories: [python 잡다한것]
 a = "hello"
 a = "world"  # 새로운 객체 생성
 ```
+함수 인자로 들어갈때 불변 객체는 복사본을 전달한다.
+```python
+def modify1(s):
+  s += "To You"
 
+msg = "Happy Birthday"
+print("msg=", msg)
+modify1(msg)
+print("msg=", msg)
+```
+```python
+msg= Happy Birthday
+msg= Happy Birthday
+```
 ---
 
 ### **(2) 가변 객체 (Mutable)**
 
 가변 객체는 생성 후에도 값을 직접 수정할 수 있는 객체이다.
+
+데이터가 큰 객체들이다.
 
 * 리스트 (list)
 * 딕셔너리 (dict)
@@ -39,6 +54,20 @@ a = "world"  # 새로운 객체 생성
 ```python
 arr = [1, 2, 3]
 arr[0] = 10  # 값 변경 가능
+```
+함수 인자로 들어갈때 불변 객체는 원본을 전달한다.
+```python
+def modify2 (li):
+  li += [100, 200]
+
+list = [1, 2, 3, 4, 5]
+print (list)
+modify2 (list)
+print (list)
+```
+```python
+[1, 2, 3, 4, 5]
+[1, 2, 3, 4, 5, 100, 200]
 ```
 
 ---
