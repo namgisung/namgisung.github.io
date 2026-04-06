@@ -16,7 +16,7 @@ order: 4
 
 ### **(1) 기본 구조**
 
-```python id="k9dp96"
+```python
 def 함수이름():
     return 값
 ```
@@ -25,7 +25,7 @@ def 함수이름():
 
 ### **(2) 기본 예제**
 
-```python id="2dkt5z"
+```python
 def add(a, b):
     return a + b
 
@@ -41,7 +41,7 @@ print(result)
 
 `return`이 실행되면 함수는 즉시 종료된다.
 
-```python id="v1c4lr"
+```pythoㅜ
 def func():
     return 1
     print("Hello")  # 실행되지 않음
@@ -54,7 +54,7 @@ def func():
 파이썬에서는 여러 값을 동시에 반환할 수 있다.
 이 경우 반환값은 튜플(tuple) 형태로 처리된다.
 
-```python id="8h5qfd"
+```python
 def func():
     return 1, 2, 3
 
@@ -64,7 +64,7 @@ print(result)
 
 출력:
 
-```text id="z8l5k1"
+```texㅅ
 (1, 2, 3)
 ```
 
@@ -74,7 +74,7 @@ print(result)
 
 반환된 여러 값을 각각의 변수로 나눌 수 있다.
 
-```python id="d44h3m"
+```python
 def func():
     return 1, 2
 
