@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: 가변객체
+title: 가변 인자
 wiki_name: python
 parent: python/함수
 order: 7
