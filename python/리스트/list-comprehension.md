@@ -3,7 +3,7 @@ layout: wiki
 title: 리스트 컴프리헨션
 wiki_name: python
 parent: python/리스트
-order: 5
+order: 6
 ---
 
 
