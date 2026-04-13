@@ -3,7 +3,7 @@ layout: wiki
 title: 리스트 순회
 wiki_name: python
 parent: python/리스트
-order: 8
+order: 9
 ---
 
 ## **리스트 순회**
