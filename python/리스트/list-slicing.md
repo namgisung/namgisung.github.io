@@ -1,3 +1,4 @@
+---
 layout: wiki
 title: 리스트 슬라이싱
 wiki_name: python
