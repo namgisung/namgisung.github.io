@@ -50,6 +50,8 @@ msg= Happy Birthday
 * 리스트 (list)
 * 딕셔너리 (dict)
 * 집합 (set)
+* 배열 (array)
+* 사용자가 정의한 객체 (user-defined classes (unless specifically made immutable))
 
 ```python
 arr = [1, 2, 3]
