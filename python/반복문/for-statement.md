@@ -51,7 +51,7 @@ for i in range(1, 6):
 Python에서는 반복 횟수를 `range()`로 지정한다.
 
 ```python
-range(시작, 끝)
+range(start, end, step)
 ```
 
 시작부터 끝-1까지 반복
