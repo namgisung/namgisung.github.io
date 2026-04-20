@@ -56,7 +56,7 @@ C 언어에서는 `System.arraycopy()`와 비슷한 역할을 하는 함수로
 
 **지정된 메모리 영역을 한 번에 통째로 복사**한다.
 
-👉 배열의 요소들이 **연속적으로 저장되어 있다는 특성** 때문에 가능한 방식이다.
+배열의 요소들이 **연속적으로 저장되어 있다는 특성** 때문에 가능한 방식이다.
 
 ```c
 #include <stdio.h>
@@ -90,7 +90,7 @@ System.arraycopy(num, 0, newNum, 0, num.length);
 memcpy(newNum, num, sizeof(num));
 ```
 
-👉 `sizeof(num)`
+`sizeof(num)`
 → num 배열 전체의 **메모리 크기(byte)**
 
 ---
