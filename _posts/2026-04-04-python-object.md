@@ -14,6 +14,8 @@ categories: [python 잡다한것]
 
 ### **(1) 불변 객체 (Immutable)**
 
+**call by value**
+
 불변 객체는 생성 후 값을 변경할 수 없는 객체이다.
 값을 변경하려면 새로운 객체를 생성해야 한다.
 
@@ -42,6 +44,8 @@ msg= Happy Birthday
 ---
 
 ### **(2) 가변 객체 (Mutable)**
+
+**call by reference**
 
 가변 객체는 생성 후에도 값을 직접 수정할 수 있는 객체이다.
 
