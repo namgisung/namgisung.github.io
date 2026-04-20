@@ -6,50 +6,65 @@ parent: python/리스트
 order: 6
 ---
 
-
-
 ## **리스트 컴프리헨션**
 
 리스트 컴프리헨션은 반복문을 사용하여 리스트를 간단하게 생성하는 방법이다.
 
 ---
 
-### **(1) 기본 구조**
+### **(1)*삼항 연산자**
 
-```python
-[표현식 for 변수 in 반복가능한객체]
+```python id="a1k9zp"
+x = 5
+result = 10 if x > 0 else 0
+print(result)
 ```
+
+결과:
+
+```text id="r1m4qk"
+10
+```
+
+단독으로 사용되는 조건 표현식 (컴프리헨션 아님)
 
 ---
 
-### **(2) 기본 예제**
-
-```python
-arr = []
-
-for i in range(5):
-    arr.append(i)
-```
-
-위 코드를 리스트 컴프리헨션으로 쓰면:
+### **(2)*수식 + for**
 
 ```python
 arr = [i for i in range(5)]
+print(arr)
+```
+
+결과:
+
+```text
+[0, 1, 2, 3, 4]
 ```
 
 ---
 
-### 조건 포함
+### **(3)*수식 + for + for (중첩 반복)**
+
+```python
+arr = [j for i in range(2) for j in range(3)]
+print(arr)
+```
+
+결과:
+
+```text
+[0, 1, 2, 0, 1, 2]
+```
+
+---
+
+### **(4)*수식 + for + if (조건 필터링)**
 
 ```python
 arr = [i for i in range(10) if i % 2 == 0]
-```
-
-짝수만 저장
-
-
-```python
-arr = [i * 2 for i in range(5)]
+print(arr)
 ```
 
 결과:
@@ -60,17 +75,15 @@ arr = [i * 2 for i in range(5)]
 
 ---
 
+### **(5)*수식 + if ~ else + for (삼항 포함)**
 
-기존 방식:
-
-```python
-arr = []
-for i in range(5):
-    arr.append(i)
+```python 
+arr = [i if i % 2 == 0 else 0 for i in range(5)]
+print(arr)
 ```
 
-컴프리헨션:
+결과:
 
-```python
-arr = [i for i in range(5)]
+```text 
+[0, 0, 2, 0, 4]
 ```
