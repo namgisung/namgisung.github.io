@@ -14,7 +14,7 @@ order: 6
 
 ### **(1)*삼항 연산자**
 
-```python id="a1k9zp"
+```python
 x = 5
 result = 10 if x > 0 else 0
 print(result)
@@ -22,7 +22,7 @@ print(result)
 
 결과:
 
-```text id="r1m4qk"
+```text
 10
 ```
 
