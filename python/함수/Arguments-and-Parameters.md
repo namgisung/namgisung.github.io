@@ -3,7 +3,7 @@ layout: wiki
 title: 인자와 매개변수
 wiki_name: python
 parent: python/함수
-order: 3
+order: 4
 ---
 
 ## **매개변수와 인자**
