@@ -1,6 +1,6 @@
 ---
 layout: wiki
-title: 인자와 매개변수
+title: 매개변수와 인자
 wiki_name: python
 parent: python/함수
 order: 4
@@ -10,7 +10,7 @@ order: 4
 
 함수는 값을 입력받아 처리할 수 있으며, 이때 사용하는 것이 매개변수와 인자이다.
 
-* 매개변수(parameter): 함수를 정의할 때 사용하는 변수
+* 매개변수(parameter): 함수를 정의할 때 사용하는 변수, 의미 있는 식별자 사용
 * 인자(argument): 함수를 호출할 때 전달하는 값
 
 ---
