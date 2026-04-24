@@ -3,7 +3,7 @@ layout: wiki
 title: 함수 호출
 wiki_name: python
 parent: python/함수
-order: 2
+order: 3
 ---
 
 
