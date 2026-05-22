@@ -2,6 +2,6 @@
 layout: wiki
 title: instance method
 wiki_name: python
-parent: python/클래스/매서드종류
+parent: python/클래스/메서드종류
 order: 1
 ---
