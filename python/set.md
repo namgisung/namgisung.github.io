@@ -63,9 +63,9 @@ print(a - b)  # 차집합
 ```
 또는
 ```python
-a.intersection(b)
-a.union(b)
-a.difference(b)
+a.intersection(b) #교집합
+a.union(b) #합집합
+a.difference(b) #차집합
 ```
 
 ---
