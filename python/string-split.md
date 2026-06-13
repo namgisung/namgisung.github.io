@@ -132,7 +132,41 @@ print(s.strip())   # "hello"   (양쪽 공백 제거)
 
 ---
 
-### **(5) replace() : 문자열 바꾸기**
+### **(5) endswith() : 접미사 검사**
+
+문자열이 특정 문자 또는 문자열로 끝나는지 확인하여 `True` 또는 `False`를 반환한다.
+
+```python
+filename = "report.pdf"
+
+print(filename.endswith(".pdf"))  # True
+print(filename.endswith(".txt"))  # False
+
+```
+
+특정 확장자의 파일을 걸러내거나 확인할 때 유용하게 쓰인다.
+
+---
+
+### **(6) join() : 문자열 합치기**
+
+리스트나 튜플 등의 요소들을 특정 문자열(구분자)로 연결하여 **하나의 문자열**로 결합한다.
+
+```python
+words = ["apple", "banana", "cherry"]
+
+result = ", ".join(words)
+print(result)  # apple, banana, cherry
+
+# 공백 없이 합치기
+result2 = "".join(words)
+print(result2) # applebananacherry
+
+```
+
+---
+
+### **(7) replace() : 문자열 바꾸기**
 
 첫 번째 인자의 문자열을 두 번째 인자의 문자열로 치환하여 반환한다.
 
@@ -146,7 +180,7 @@ print(result)  # hello world
 
 ---
 
-### **(6) upper(), lower() : 대소문자 변환**
+### **(8) upper(), lower() : 대소문자 변환**
 
 문자열을 모두 대문자 또는 소문자로 변환하여 반환한다.
 
@@ -160,7 +194,7 @@ print(s.lower())  # python
 
 ---
 
-### **(7) format() : 문자열 포매팅**
+### **(9) format() : 문자열 포매팅**
 
 문자열 내부에 중괄호 `{}`를 사용해 원하는 변수나 값을 동적으로 삽입한다.
 
@@ -176,7 +210,7 @@ print(s2.format(name="Gisung", food="pizza"))  # Gisung likes pizza.
 
 ---
 
-### **(8) 문자열 구성 검사 함수들**
+### **(10) 문자열 구성 검사 함수들**
 
 문자열의 내용물이 어떤 타입으로 구성되어 있는지 확인하여 `True` 또는 `False`를 반환한다.
 
@@ -212,5 +246,6 @@ print("a123".isalnum())     # True  (모두 알파벳+숫자 조합인가?)
 
 - 문자열은 인덱싱과 슬라이싱을 통해 부분 추출이 가능하다.
 - 문자열은 이뮤터블(Immutable)이므로, 모든 가공 함수는 원본을 바꾸지 않고 **새 문자열을 반환**한다.
-- `split()`은 문자열을 리스트로 쪼개주며, `replace()`는 특정 단어를 치환한다.
-- `isalpha()`, `isnumeric()`, `isalnum()`을 통해 문자열의 데이터 성격을 검사할 수 있습니다.
+- `split()`은 문자열을 리스트로 쪼개주며, `join()`은 리스트를 문자열로 결합한다.
+- `endswith()`를 활용하면 특정 문자열이나 확장자로 끝나는지 쉽게 식별할 수 있다.
+- `isalpha()`, `isnumeric()`, `isalnum()`을 통해 문자열의 데이터 성격을 검사할 수 있다.
