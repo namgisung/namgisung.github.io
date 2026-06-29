@@ -3,7 +3,7 @@ layout: wiki
 title: ERD
 wiki_name: sql
 parent: sql/모델링의이해
-order: 1
+order: 6
 ---
 
 ```mermaid
