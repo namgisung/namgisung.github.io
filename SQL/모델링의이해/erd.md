@@ -2,7 +2,7 @@
 layout: wiki
 title: ERD
 wiki_name: sql
-parent: sql/모델링의이해
+parent: sql/1. 모델링의 이해
 order: 6
 ---
 
