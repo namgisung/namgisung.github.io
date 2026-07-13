@@ -6,14 +6,6 @@ parent: sql/03.SQL-기본
 order: 4
 ---
 
----
-
-layout: wiki
-title: 6. WHERE절
-wiki_name: sql
-parent: sql
-order: 6
---------
 
 ## **1. WHERE절**
 
