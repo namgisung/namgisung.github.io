@@ -6,15 +6,6 @@ parent: sql/03.SQL-기본
 order: 5
 ---
 
----
-
-layout: wiki
-title: 7. GROUP BY절과 HAVING절
-wiki_name: sql
-parent: sql
-order: 7
---------
-
 ## **1. GROUP BY절**
 
 `GROUP BY`절은 **특정 칼럼을 기준으로 데이터를 그룹화(Grouping)** 할 때 사용하는 절이다.
