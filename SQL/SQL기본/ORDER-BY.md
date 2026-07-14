@@ -21,7 +21,7 @@ order: 6
 
 ### **기본 문법**
 
-```sql id="qg5i6k"
+```sql
 ORDER BY 칼럼 [ASC | DESC]
 ```
 
@@ -36,7 +36,7 @@ ORDER BY 칼럼 [ASC | DESC]
 
 ### **예제 ① : 오름차순 정렬**
 
-```sql id="2mhywu"
+```sql
 SELECT 번호, 이름, 주소
 FROM 학생
 ORDER BY 번호;
@@ -52,7 +52,7 @@ ORDER BY 번호;
 
 ### **예제 ② : 내림차순 정렬**
 
-```sql id="zvbwfh"
+```sql
 SELECT 이름,
        수학,
        영어,
