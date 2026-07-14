@@ -6,14 +6,6 @@ parent: sql/03.SQL-기본
 order: 6
 ---
 
----
-
-layout: wiki
-title: 8. ORDER BY절
-wiki_name: sql
-parent: sql
-order: 8
---------
 
 ## **1. ORDER BY절**
 
