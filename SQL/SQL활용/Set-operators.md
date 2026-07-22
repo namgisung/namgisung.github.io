@@ -76,7 +76,7 @@ FROM CLUB2;
 
 #### **예제**
 
-```sql id="u0w5tp"
+```sql
 SELECT NAME, TEL, CLASS
 FROM CLUB1
 
