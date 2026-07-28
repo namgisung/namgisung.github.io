@@ -105,6 +105,50 @@ CONNECT BY PRIOR MGR = EMPNO;
 
 ---
 
+#### **예제 3. 부모 정보 함께 조회**
+
+```sql
+SELECT *
+FROM (
+    SELECT LEVEL AS LVL,
+           EMPNO,
+           JOB,
+           PRIOR ENAME AS MANAGER,
+           PRIOR JOB AS MANAGER_JOB
+    FROM EMP
+    START WITH MGR IS NULL
+    CONNECT BY PRIOR EMPNO = MGR
+)
+ORDER BY LVL;
+```
+
+- `LEVEL`을 이용하여 계층(Level)을 표시한다.
+- `PRIOR ENAME`은 현재 사원의 **부모(상사)의 이름**을 반환한다.
+- `PRIOR JOB`은 현재 사원의 **부모(상사)의 직급**을 반환한다.
+- `ORDER BY LVL`을 사용하여 같은 계층(Level)끼리 정렬하여 출력한다.
+
+#### **설명**
+
+1. `START WITH MGR IS NULL`로 최상위 관리자부터 계층 탐색을 시작한다.
+2. `CONNECT BY PRIOR EMPNO = MGR`을 통해 부모 → 자식 방향으로 계층을 전개한다.
+3. `PRIOR` 키워드를 사용하여 현재 행의 부모 노드 정보를 함께 조회한다.
+4. `LEVEL`을 이용하여 조직의 깊이를 확인할 수 있으며, 결과를 계층별로 정렬하여 출력한다.
+
+#### **예시 결과**
+
+|LVL|EMPNO|JOB|MANAGER|MANAGER_JOB|
+|---:|---:|---|---|---|
+|1|7839|PRESIDENT|NULL|NULL|
+|2|7566|MANAGER|KING|PRESIDENT|
+|2|7698|MANAGER|KING|PRESIDENT|
+|2|7782|MANAGER|KING|PRESIDENT|
+|3|7788|ANALYST|JONES|MANAGER|
+|3|7902|ANALYST|JONES|MANAGER|
+|3|7499|SALESMAN|BLAKE|MANAGER|
+|3|7521|SALESMAN|BLAKE|MANAGER|
+
+---
+
 ### **2. 셀프 조인(Self Join)**
 
 셀프 조인은 **하나의 테이블을 자기 자신과 조인(Self Join)**하는 기법이다.
