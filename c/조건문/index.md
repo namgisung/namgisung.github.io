@@ -4,6 +4,7 @@ title: 조건문
 wiki_name: c
 parent: c
 order: 6
+permalink: /c/조건문/
 ---
 
 ## **조건문**
