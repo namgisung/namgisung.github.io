@@ -56,17 +56,29 @@ C언어에서는 입력 데이터의 타입이 고정되어 있지 않기 때문
 
 형식 지정자(format specifier, 형식문자)
 
-| 자료형      | 형식 지정자 |
-| -------- | ------ |
-| `int`    | `%d`   |
-| `double` | `%lf`  |
-| `char`   | `%c`   |
-| 문자열      | `%s`   |
+| 데이터 종류 | 자료형 | 크기(Byte) | 입력 변환 문자 |
+| --- | --- | --- | --- |
+| 정수 | (unsigned) short | 2 | `%hd` (`%hu`) |
+| 정수 | (unsigned) int | 4 | `%d` (`%u`) |
+| 정수 | (unsigned) long | 4 | `%ld` (`%lu`) |
+| 정수 | (unsigned) long long | 8 | `%lld` (`%llu`) |
+| 실수 | float | 4 | `%f` |
+| 실수 | double | 8 | `%lf` |
+| 실수 | long double | 8, 16 | `%Lf` |
+| 문자 | char | 1 | `%c` |
+| 문자열 | char 배열 | 가변적 | `%s` |
+
+* 괄호 안은 `unsigned` 자료형일 때의 변환 문자이다
 
 ```c
 double x;
 scanf("%lf", &x);
 ```
+
+**입력과 출력의 차이 (중요)**
+
+* `printf`에서는 `float`가 `double`로 자동 승격되어 `%f`와 `%lf`가 똑같이 동작한다
+* `scanf`는 값을 변수 주소에 직접 저장하므로 승격이 없다. `float`는 `%f`, `double`은 `%lf`로 **반드시 구분**해야 한다
 
 ---
 
