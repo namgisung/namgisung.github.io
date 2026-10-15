@@ -1,4 +1,4 @@
----
+×---
 layout: wiki
 title: switch문
 wiki_name: c
@@ -90,7 +90,7 @@ switch (n) {
 ```c
 switch (num) { }      // 가능
 switch (ch) { }       // 가능
-switch (3.14) { }     // ❌ 불가능
+switch (3.14) { }     // × 불가능
 ```
 
 ---
