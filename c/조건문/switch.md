@@ -1,4 +1,4 @@
-×---
+---
 layout: wiki
 title: switch문
 wiki_name: c
