@@ -34,6 +34,14 @@ Non EQUI JOIN은 **등호(`=`)가 아닌 비교 연산자**를 이용하는 JOIN
 
 주로 `BETWEEN`, `>`, `>=`, `<`, `<=` 등을 사용하여 범위 조건으로 조인을 수행한다.
 
+```sql
+-- 급여(SAL)가 속하는 급여 등급(GRADE)을 구하는 예
+SELECT E.ENAME, E.SAL, S.GRADE
+FROM EMP E
+JOIN SALGRADE S
+ON E.SAL BETWEEN S.LOSAL AND S.HISAL;
+```
+
 > 설계에 따라 실행이 불가능한 경우도 있으므로 주의해야 한다.
 
 ---
@@ -52,6 +60,13 @@ N개의 테이블을 JOIN하면 **N-1개의 JOIN**이 발생한다.
 
 이러한 경우 **반정규화**를 통해 JOIN 대상 테이블 수를 줄여 성능을 최적화할 수 있다.
 
+#### **조인 조건 누락과 카테시안 곱**
+
+N개의 테이블을 조인하려면 조인 조건이 **최소 N-1개** 필요하다. 조건이 빠지면 해당 테이블 사이에서 **카테시안 곱**이 발생한다.
+
+* STUDENT 5행, CLUB 3행 → 조건 없이 조인하면 5 × 3 = **15행**
+* 3개 테이블(A 10행, B 5행, C 2행)에서 A–B 조건만 있고 C 조건이 없다면: (A–B 결과 행 수) × 2행
+
 ---
 
 ### **5. OUTER JOIN의 개념**
@@ -62,13 +77,11 @@ N개의 테이블을 JOIN하면 **N-1개의 JOIN**이 발생한다.
 
 반면 **OUTER JOIN**은 조건에 맞지 않는 행도 함께 조회하는 JOIN이다.
 
-집합의 개념으로 보면 **합집합(∪)** 에 가깝다.
-
 OUTER JOIN의 종류는 다음과 같다.
 
 * LEFT OUTER JOIN
 * RIGHT OUTER JOIN
-* FULL OUTER JOIN
+* FULL OUTER JOIN (집합의 개념으로 **합집합(∪)** 에 해당)
 
 #### **Oracle (+) 문법**
 
@@ -87,6 +100,13 @@ WHERE A.DEPTNO = B.DEPTNO(+);
 ```sql
 A LEFT OUTER JOIN B
 ```
+
+**(+) 규칙**
+
+* `(+)`는 **데이터가 부족한 쪽**(NULL로 채워지는 쪽)에 붙인다.
+* 조인 조건이 **여러 개**이면 **모든 조건에** `(+)`를 붙여야 OUTER JOIN으로 동작한다. 하나라도 빠지면 INNER JOIN처럼 동작한다.
+* **FULL OUTER JOIN은 (+)로 표현할 수 없다.**
+* 양쪽에 동시에 `(+)`를 붙일 수 없다. (`A.X(+) = B.Y(+)` 에러)
 
 ---
 
@@ -113,7 +133,34 @@ ON 조건식;
 
 ---
 
-### **7. INNER JOIN**
+### **7. 예제 테이블 (결과 확인용)**
+
+이후 예제는 아래 두 테이블을 기준으로 한다. (설명을 위해 APPR에는 FK 제약이 없다고 가정한다.)
+
+**ACTOR**
+
+| ACTOR_NO | NAME | GENDER |
+|----------|------|--------|
+| 1        | 김민준  | M      |
+| 2        | 이서연  | F      |
+| 3        | 박지호  | M      |
+| 4        | 최수아  | F      |
+
+**APPR**
+
+| ACTOR_NO | MOVIE_NO |
+|----------|----------|
+| 1        | 101      |
+| 1        | 102      |
+| 2        | 101      |
+| 5        | 103      |
+
+* 배우 3, 4는 출연 기록(APPR)이 없다.
+* APPR의 ACTOR_NO 5는 ACTOR에 없는 값이다.
+
+---
+
+### **8. INNER JOIN**
 
 INNER JOIN은 **조건을 만족하는 행만 조회**하는 JOIN이다.
 
@@ -138,13 +185,21 @@ ON A1.ACTOR_NO = A2.ACTOR_NO;
 1. ACTOR와 APPR 테이블을 INNER JOIN한다.
 2. ACTOR_NO가 같은 행만 조회한다.
 
+#### **실행 결과 (3행)**
+
+| ACT_NO1 | ACT_NO2 | MOVIE_NO | NAME | GENDER |
+|---------|---------|----------|------|--------|
+| 1       | 1       | 101      | 김민준  | M      |
+| 1       | 1       | 102      | 김민준  | M      |
+| 2       | 2       | 101      | 이서연  | F      |
+
 ---
 
-### **8. OUTER JOIN**
+### **9. OUTER JOIN**
 
 OUTER JOIN은 **조건을 만족하지 않는 행도 함께 조회**하는 JOIN이다.
 
-#### **8.1 LEFT OUTER JOIN**
+#### **9.1 LEFT OUTER JOIN**
 
 왼쪽 테이블의 **모든 행**을 조회한다.
 
@@ -165,9 +220,19 @@ ON A1.ACTOR_NO = A2.ACTOR_NO;
 1. ACTOR의 모든 행을 출력한다.
 2. 일치하는 APPR 데이터가 없으면 NULL을 출력한다.
 
+**실행 결과 (5행)**
+
+| ACT_NO1 | ACT_NO2 | MOVIE_NO | NAME | GENDER |
+|---------|---------|----------|------|--------|
+| 1       | 1       | 101      | 김민준  | M      |
+| 1       | 1       | 102      | 김민준  | M      |
+| 2       | 2       | 101      | 이서연  | F      |
+| 3       | NULL    | NULL     | 박지호  | M      |
+| 4       | NULL    | NULL     | 최수아  | F      |
+
 ---
 
-#### **8.2 RIGHT OUTER JOIN**
+#### **9.2 RIGHT OUTER JOIN**
 
 오른쪽 테이블의 **모든 행**을 조회한다.
 
@@ -188,9 +253,18 @@ ON A1.ACTOR_NO = A2.ACTOR_NO;
 1. APPR의 모든 행을 출력한다.
 2. 일치하는 ACTOR 데이터가 없으면 NULL을 출력한다.
 
+**실행 결과 (4행)**
+
+| ACT_NO1 | ACT_NO2 | MOVIE_NO | NAME | GENDER |
+|---------|---------|----------|------|--------|
+| 1       | 1       | 101      | 김민준  | M      |
+| 1       | 1       | 102      | 김민준  | M      |
+| 2       | 2       | 101      | 이서연  | F      |
+| NULL    | 5       | 103      | NULL | NULL   |
+
 ---
 
-#### **8.3 FULL OUTER JOIN**
+#### **9.3 FULL OUTER JOIN**
 
 양쪽 테이블의 **모든 행**을 조회한다.
 
@@ -211,9 +285,76 @@ ON A1.ACTOR_NO = A2.ACTOR_NO;
 1. ACTOR와 APPR의 모든 행을 출력한다.
 2. 대응되는 값이 없으면 NULL을 출력한다.
 
+**실행 결과 (6행)**
+
+| ACT_NO1 | ACT_NO2 | MOVIE_NO | NAME | GENDER |
+|---------|---------|----------|------|--------|
+| 1       | 1       | 101      | 김민준  | M      |
+| 1       | 1       | 102      | 김민준  | M      |
+| 2       | 2       | 101      | 이서연  | F      |
+| 3       | NULL    | NULL     | 박지호  | M      |
+| 4       | NULL    | NULL     | 최수아  | F      |
+| NULL    | 5       | 103      | NULL | NULL   |
+
+> 행 수 계산: FULL = INNER(3) + 왼쪽에만 있는 행(2) + 오른쪽에만 있는 행(1) = 6행
+
 ---
 
-### **9. NATURAL JOIN**
+#### **9.4 OUTER JOIN에서 ON 조건 vs WHERE 조건**
+
+조건을 **ON절**에 쓰는지 **WHERE절**에 쓰는지에 따라 결과가 달라진다. 자주 출제되는 함정이다.
+
+* **ON절:** JOIN을 수행하면서 적용되므로, 기준 테이블(왼쪽)의 행은 **모두 유지**되고 대응되지 않으면 NULL로 채워진다.
+* **WHERE절:** JOIN이 끝난 **결과를 다시 필터링**하므로, NULL로 채워진 행이 사라져 **INNER JOIN과 같은 결과**가 될 수 있다.
+
+**예제 ① 조건을 ON절에 작성 (4행)**
+
+```sql
+SELECT A1.ACTOR_NO, A2.MOVIE_NO, A1.NAME
+FROM ACTOR A1
+LEFT OUTER JOIN APPR A2
+ON A1.ACTOR_NO = A2.ACTOR_NO
+AND A2.MOVIE_NO = 101;
+```
+
+| ACTOR_NO | MOVIE_NO | NAME |
+|----------|----------|------|
+| 1        | 101      | 김민준  |
+| 2        | 101      | 이서연  |
+| 3        | NULL     | 박지호  |
+| 4        | NULL     | 최수아  |
+
+**예제 ② 조건을 WHERE절에 작성 (2행)**
+
+```sql
+SELECT A1.ACTOR_NO, A2.MOVIE_NO, A1.NAME
+FROM ACTOR A1
+LEFT OUTER JOIN APPR A2
+ON A1.ACTOR_NO = A2.ACTOR_NO
+WHERE A2.MOVIE_NO = 101;
+```
+
+| ACTOR_NO | MOVIE_NO | NAME |
+|----------|----------|------|
+| 1        | 101      | 김민준  |
+| 2        | 101      | 이서연  |
+
+> 활용: `WHERE A2.ACTOR_NO IS NULL`을 쓰면 **APPR에 대응 행이 없는 ACTOR**(출연 기록 없는 배우 3, 4)만 조회할 수 있다.
+
+**Oracle (+) 문법으로 표현한 예제 ① (4행)**
+
+```sql
+SELECT A1.ACTOR_NO, A2.MOVIE_NO, A1.NAME
+FROM ACTOR A1, APPR A2
+WHERE A1.ACTOR_NO = A2.ACTOR_NO(+)
+AND A2.MOVIE_NO(+) = 101;
+```
+
+두 조건 모두에 `(+)`를 붙였으므로 ON절에 AND로 쓴 것과 같은 결과가 나온다.
+
+---
+
+### **10. NATURAL JOIN / USING**
 
 NATURAL JOIN은 **이름이 같은 컬럼을 자동으로 찾아 조인**하는 방식이다.
 
@@ -230,6 +371,14 @@ NATURAL JOIN APPR;
 1. 이름이 같은 컬럼을 자동으로 찾는다.
 2. 동일한 값을 가진 행만 JOIN한다.
 
+**실행 결과 (3행)** — 공통 컬럼(ACTOR_NO)은 **한 번만, 맨 앞에** 출력된다.
+
+| ACTOR_NO | NAME | GENDER | MOVIE_NO |
+|----------|------|--------|----------|
+| 1        | 김민준  | M      | 101      |
+| 1        | 김민준  | M      | 102      |
+| 2        | 이서연  | F      | 101      |
+
 > SQL Server에서는 NATURAL JOIN을 지원하지 않는다.
 
 > NATURAL JOIN은 조인 조건을 내포하고 있으므로 `ON`절을 사용할 수 없다.
@@ -242,9 +391,28 @@ FROM ACTOR
 JOIN APPR USING (ACTOR_NO);
 ```
 
+#### **주의사항**
+
+* 조인에 사용된 **공통 컬럼에는 테이블명이나 별칭을 붙일 수 없다.** (붙이면 에러)
+
+```sql
+-- 에러: 공통 컬럼에 별칭 사용
+SELECT A.ACTOR_NO, NAME
+FROM ACTOR A
+NATURAL JOIN APPR B;
+
+-- 정상: 공통 컬럼은 이름만 사용
+SELECT ACTOR_NO, NAME
+FROM ACTOR A
+NATURAL JOIN APPR B;
+```
+
+* `USING (컬럼)`도 마찬가지로 해당 컬럼에 별칭을 붙일 수 없다.
+* NATURAL JOIN은 이름이 같은 컬럼이 **여러 개**면 그 컬럼 모두가 조인 조건이 된다.
+
 ---
 
-### **10. CROSS JOIN**
+### **11. CROSS JOIN**
 
 CROSS JOIN은 **두 테이블의 모든 행을 서로 조합**하는 JOIN이다.
 
@@ -271,9 +439,26 @@ FROM STUDENT S1
 CROSS JOIN CLUB C1;
 ```
 
+> 7번 예제 테이블에서 `ACTOR CROSS JOIN APPR`의 결과는 4 × 4 = **16행**이다.
+
 ---
 
-### **11. JOIN 종류 비교**
+### **12. 셀프 조인 (SELF JOIN)**
+
+같은 테이블을 **별칭을 달리하여** 두 번 사용하는 조인이다. 별칭은 **필수**이다. (자세한 내용은 4.6 참고)
+
+```sql
+SELECT E.ENAME AS 사원, M.ENAME AS 관리자
+FROM EMP E
+JOIN EMP M
+ON E.MGR = M.EMPNO;
+```
+
+* 관리자(MGR)가 NULL인 최상위 사원은 INNER JOIN에서는 **제외**된다. 포함하려면 LEFT OUTER JOIN을 사용한다.
+
+---
+
+### **13. JOIN 종류 비교**
 
 | JOIN             | 설명                   |
 | ---------------- | -------------------- |
@@ -285,3 +470,37 @@ CROSS JOIN CLUB C1;
 | CROSS JOIN       | 모든 행을 조합(M × N)      |
 
 > SQLD에서는 **INNER JOIN과 OUTER JOIN의 차이**, **ANSI JOIN 문법**, **NATURAL JOIN**, **USING**, **CROSS JOIN**, **Oracle (+) 문법**이 자주 출제된다.
+
+---
+
+### **14. 연습문제**
+
+**Q1.** 7번 테이블에서 아래 쿼리의 결과 행 수는?
+
+```sql
+SELECT *
+FROM ACTOR A1
+RIGHT OUTER JOIN APPR A2
+ON A1.ACTOR_NO = A2.ACTOR_NO
+WHERE A1.GENDER = 'M';
+```
+
+**Q2.** 7번 테이블에서 `ACTOR CROSS JOIN APPR`의 결과 행 수는?
+
+**Q3.** 다음 중 에러가 발생하는 것은?
+
+① `SELECT * FROM ACTOR NATURAL JOIN APPR;`
+② `SELECT ACTOR_NO FROM ACTOR NATURAL JOIN APPR;`
+③ `SELECT A.ACTOR_NO FROM ACTOR A NATURAL JOIN APPR B;`
+④ `SELECT NAME FROM ACTOR JOIN APPR USING (ACTOR_NO);`
+
+<details>
+<summary>정답 보기</summary>
+
+**A1. 2행** — RIGHT JOIN 결과(4행) 중 GENDER = 'M'인 행은 김민준의 2행뿐이다. ACTOR_NO 5 행은 GENDER가 NULL이라 WHERE에서 제거된다.
+
+**A2. 16행** — 4 × 4 = 16
+
+**A3. ③** — 공통 컬럼 ACTOR_NO에 별칭(A.)을 붙였으므로 에러이다.
+
+</details>
