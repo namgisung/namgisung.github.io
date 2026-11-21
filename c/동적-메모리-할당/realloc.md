@@ -69,6 +69,65 @@ int main() {
 
 ---
 
+### 예제: 입력이 늘어나면 배열 확장하기
+
+양수를 입력받아 저장하다가, 공간이 가득 차면 5개씩 늘린다.
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    int* pi;         // 할당한 저장 공간을 연결할 포인터
+    int size = 5;    // 한 번에 할당할 저장 공간의 크기, int형 변수 5개씩
+    int count = 0;   // 현재 입력된 양수 개수
+    int num;         // 양수를 입력할 변수
+    int i;           // 반복 제어 변수
+
+    pi = (int*)calloc(size, sizeof(int));    // 먼저 5개의 저장 공간 할당
+    if (pi == NULL) return 1;
+    while (1)
+    {
+        printf("양수만 입력하세요 = > ");
+        scanf("%d", &num);                   // 데이터 입력
+        if (num <= 0) break;                 // 0 또는 음수이면 종료
+        if (count == size)                   // 저장 공간을 모두 사용하면
+        {
+            int* temp;
+            size += 5;                       // 크기를 늘려서 재할당
+            temp = (int*)realloc(pi, size * sizeof(int));
+            if (temp == NULL)                // 실패하면 기존 공간을 반납하고 종료
+            {
+                free(pi);
+                return 1;
+            }
+            pi = temp;
+        }
+        pi[count++] = num;
+    }
+    for (i = 0; i < count; i++)
+    {
+        printf("%5d", pi[i]);                // 입력한 데이터 출력
+    }
+    free(pi);                                // 동적 할당 저장 공간 반납
+
+    return 0;
+}
+```
+
+실행 예 (10 20 30 40 50 60을 입력하고 0으로 종료)
+
+```
+   10   20   30   40   50   60
+```
+
+* 처음에 `calloc`으로 5개를 할당하고, 6번째 값을 넣을 때 `realloc`으로 10개로 늘린다
+* 기존 데이터는 **그대로 유지**된다
+* 교재 예제는 `pi = realloc(pi, ...)`로 바로 덮어쓰지만, 실패하면 기존 주소를 잃으므로 위 코드는 **`temp`에 먼저 받아서 확인**한다
+
+---
+
 ### realloc 내부 동작 방식
 
 `realloc`은 상황에 따라 다르게 동작한다.
